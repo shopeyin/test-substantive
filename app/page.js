@@ -2,7 +2,6 @@ import { getProductBenchmarks, getExchangeRates } from "./lib/api";
 import BenchmarkTable from "@/components/ui/BenchmarkTable";
 import PaymentTrendChart from "@/components/ui/PaymentTrendChart";
 
-
 export default async function Home() {
   let productBenchmarksResult;
   let exchangeRatesResult;
@@ -26,8 +25,6 @@ export default async function Home() {
 
   const hasBenchmarks = product_benchmarks && product_benchmarks.length > 0;
   const hasExchangeRates = exchange_rates && exchange_rates.length > 0;
-
-
 
   return (
     <>
