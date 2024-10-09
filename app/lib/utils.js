@@ -17,3 +17,31 @@ export  function convertToEuros(payment, currencyId, year, exchangeRates) {
     }
 }
 
+
+export const transformData = (data, exchange_rates) => {
+    const transformedData = {};
+  
+    data.forEach((item) => {
+      const { product_name, provider_name, currency, payment, start_date } = item;
+  
+        const year = new Date(start_date).getFullYear().toString();
+        
+      if (!transformedData[product_name]) {
+        transformedData[product_name] = {
+          product_name,
+          provider_name,
+        };
+      }
+      const convertedPayment = convertToEuros(
+        payment,
+        currency.id,
+        parseInt(year),
+        exchange_rates
+      );
+      transformedData[product_name][year] = parseFloat(
+        convertedPayment.toFixed(2)
+      );
+    });
+  
+    return Object.values(transformedData);
+  };
