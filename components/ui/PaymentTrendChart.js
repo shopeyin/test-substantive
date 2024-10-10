@@ -41,7 +41,7 @@ const PaymentTrendChart = ({ benchmarks, exchange_rates }) => {
     () => transformData(benchmarks, exchange_rates),
     [benchmarks, exchange_rates]
   );
-  console.log(productData);
+  
   const filteredData = useMemo(
     () =>
       selectedProvider === "All"
