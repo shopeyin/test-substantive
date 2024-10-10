@@ -15,7 +15,7 @@ export default async function Home() {
     console.error(error);
     return (
       <div className="max-w-7xl mx-auto p-6">
-        <p>Error fetching data: {error.message}</p>
+        <p>Error fetching data:: {error.message}</p>
       </div>
     );
   }
